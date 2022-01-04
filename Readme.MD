@@ -22,6 +22,6 @@ B1: Import file aes.js và aes.js.mem nhận được sau khi build vào file ht
 B2: Sử dụng 1 trong 2 method sau để call: 
 Đối số theo thứ tự là: "function sử dụng", "kiểu dữ liệu trả về", ["kiểu dữ liệu tham số truyền vào"], "tham số truyền vào"
 let x = Module.cwrap("encryptAES","string",["string"])("hahahaha123+/12^*4");
-Module.cwrap("decryptAES","string",["string"])(x);
+Module.cwrap("decryptAES","string",["string"])("hahahaha123+/12^*4");
 let y = Module.ccall("encryptAES","string",["string"],"hahahaha123+/12^*4");
-Module.ccall("decryptAES","string",["string"],y);
+Module.ccall("decryptAES","string",["string"],"hahahaha123+/12^*4");
