@@ -56,10 +56,6 @@ Module.ccall("decryptAES","string",["string"],x);
 ## Lưu ý
 * Hàm encrypt sẽ trả về hex string của data đã mã hoá chứ không phải base 64
 * Hàm decrypt cũng nhận tham số truyền vào hex string chứ không phải base 64
-* Encrypt
-Input: Plain text
-Output: Hex string (Lưu ý dùng mã hoá này sẽ trả ra 1 chuỗi hex string chứ không phải là trả ra 1 chuỗi base64 nhé)
+* Encrypt - Input: Plain text, Output: Hex string (Lưu ý dùng mã hoá này sẽ trả ra 1 chuỗi hex string chứ không phải là trả ra 1 chuỗi base64 nhé)
 
-* Decrypt
-Input: Hex string
-Output: Plain text
+* Decrypt - Input: Hex string, Output: Plain text
