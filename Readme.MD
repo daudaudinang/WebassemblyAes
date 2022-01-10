@@ -47,11 +47,15 @@ O3: Optimize code, -O3 sẽ minimum code sau build để nó gọn và nhẹ nh�
 ### Đối số theo thứ tự là: "function sử dụng", "kiểu dữ liệu trả về", ["kiểu dữ liệu tham số truyền vào"], "tham số truyền vào"
 * Encrypt:
 let x = Module.cwrap("encryptAES","string",["string"])("hahahaha123+/12^*4");
-Module.cwrap("encryptAES","string",["string"])("hahahaha123+/12^*4");
 
 * Decrypt:
-let y = Module.ccall("decryptAES","string",["string"], x);
-Module.ccall("decryptAES","string",["string"],x);
+let y = Module.cwrap("encryptAES","string",["string"])(x);
+
+* Nếu muốn gọi hàm mã hoá và giải mã nhiều lần, thì ta có thể làm như sau:
+const encryptFunction = Module.cwrap("encryptAES","string",["string"]);
+encryptFunction("hahahaha123+/12^*4");
+encryptFunction("hahbáạksabjksa123+/12^*4");
+encryptFunction("871hsáunjậksjnkấn");
 
 ## Lưu ý
 * Hàm encrypt sẽ trả về hex string của data đã mã hoá chứ không phải base 64
