@@ -60,8 +60,8 @@ let y = Module.cwrap("encryptAES","string",["string"])(x);
 ##### encryptFunction("871hsáunjậksjnkấn");
 
 ## Lưu ý
-* Hàm encrypt sẽ trả về hex string của data đã mã hoá chứ không phải base 64
-* Hàm decrypt cũng nhận tham số truyền vào hex string chứ không phải base 64
+1. Nếu muốn thay đổi key và iv thì vào file src/crypto.c sửa sau đó chạy `npm run build` để build lại là được.
+2. Hàm encrypt sẽ trả về hex string của data đã mã hoá chứ không phải base 64
 * Encrypt - Input: Plain text, Output: Hex string (Lưu ý dùng mã hoá này sẽ trả ra 1 chuỗi hex string chứ không phải là trả ra 1 chuỗi base64 nhé)
-
+3. Hàm decrypt cũng nhận tham số truyền vào hex string chứ không phải base 64
 * Decrypt - Input: Hex string, Output: Plain text
