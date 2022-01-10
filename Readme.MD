@@ -32,14 +32,14 @@ git clone https://github.com/emscripten-core/emsdk.git
 <!-- emcc aes.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o aes.js -s EXPORTED_FUNCTIONS='["_encryptAES_CBC","_decryptAES_CBC"]' -s EXPORTED_RUNTIME_METHODS='["cwrap"]' -s ALLOW_MEMORY_GROWTH=1 -->
 
 ## Giải thích:
-aes.c: File c của chúng ta, chứa 2 function encrypt và decrypt. Nếu muốn đổi IV và Secret Key thì ta sửa trong file này.
+* aes.c: File c của chúng ta, chứa 2 function encrypt và decrypt. Nếu muốn đổi IV và Secret Key thì ta sửa trong file này.
 O3: Optimize code, -O3 sẽ minimum code sau build để nó gọn và nhẹ nhất
--o aes.js: File đầu ra. Khi chạy lệnh trên ta sẽ có 2 file đầu ra là aes.js và aes.js.mem
-EXPORTED_FUNCTIONS: Pick function sẽ được export ra từ file aes.c
-EXPORTED_RUNTIME_METHODS: Chọn phương thức chạy, ở lệnh trên ta pick cả cwrap và ccall. Nếu như chỉ cần sử dụng cwrap hoặc chỉ cần sử dụng ccall thì pick cái sử dụng thôi. ()
-ALLOW_MEMORY_GROWTH: Cho phép tăng kích thước bộ nhớ.
---memory-init-file 0: Không tách file memory init ra 1 file *.mem riêng (Nên set cái này để tiện khi sử dụng, chỉ lấy 1 file js thôi).
--s ENVIRONMENT='web': Set cái này để file aes.js của chúng ta chạy được trong môi trường web. Nếu không set trường này thì trong file webpack.config.js ta phải set thêm externals: "fs" vào phần config, nếu không app sẽ lỗi.
+* -o aes.js: File đầu ra. Khi chạy lệnh trên ta sẽ có 2 file đầu ra là aes.js và aes.js.mem
+* EXPORTED_FUNCTIONS: Pick function sẽ được export ra từ file aes.c
+* EXPORTED_RUNTIME_METHODS: Chọn phương thức chạy, ở lệnh trên ta pick cả cwrap và ccall. Nếu như chỉ cần sử dụng cwrap hoặc chỉ cần sử dụng ccall thì pick cái sử dụng thôi. ()
+* ALLOW_MEMORY_GROWTH: Cho phép tăng kích thước bộ nhớ.
+* --memory-init-file 0: Không tách file memory init ra 1 file *.mem riêng (Nên set cái này để tiện khi sử dụng, chỉ lấy 1 file js thôi).
+* -s ENVIRONMENT='web': Set cái này để file aes.js của chúng ta chạy được trong môi trường web. Nếu không set trường này thì trong file webpack.config.js ta phải set thêm trường `externals: "fs"` vào phần config, nếu không app sẽ lỗi.
 
 ## Cách call
 ### B1: Import file aes.js và aes.js.mem nhận được sau khi build vào file html của chúng ta
