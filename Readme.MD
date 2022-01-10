@@ -11,19 +11,19 @@ Ta dùng emscripten để build.
 git clone https://github.com/emscripten-core/emsdk.git
 
 * Enter that directory
-cd emsdk
+`cd emsdk`
 
 * Fetch the latest version of the emsdk (not needed the first time you clone)
-git pull
+`git pull`
 
 * Download and install the latest SDK tools.
-./emsdk install latest
+`./emsdk install latest`
 
 * Make the "latest" SDK "active" for the current user. (writes .emscripten file)
-./emsdk activate latest
+`./emsdk activate latest`
 
 * Activate PATH and other environment variables in the current terminal
-emsdk_env.bat
+`emsdk_env.bat`
 
 ## Cú pháp build:
 emcc src/crypto.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o dist/aes.js -s EXPORTED_FUNCTIONS='_encryptAES_CBC' -s EXPORTED_RUNTIME_METHODS='cwrap' -s ALLOW_MEMORY_GROWTH=1
