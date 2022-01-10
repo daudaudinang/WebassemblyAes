@@ -42,7 +42,9 @@ O3: Optimize code, -O3 sẽ minimum code sau build để nó gọn và nhẹ nh�
 * -s ENVIRONMENT='web': Set cái này để file aes.js của chúng ta chạy được trong môi trường web. Nếu không set trường này thì trong file webpack.config.js ta phải set thêm trường `externals: "fs"` vào phần config, nếu không app sẽ lỗi.
 
 ## Cách call
-### B1: Import file aes.js và aes.js.mem nhận được sau khi build vào file html của chúng ta
+### B1: Import file aes.js nhận được sau khi build (trong folder dist) vào file html của chúng ta. 
+* Hoặc nếu muốn sử dụng nó trong 1 file javascript khác thì ta export Module ra, rồi import vào sử dụng như bình thường
+* ![Untitled](https://user-images.githubusercontent.com/89797316/148716129-b0675ec7-30c1-420c-aa61-da8b98a25544.png)
 ### B2: Sử dụng 1 trong 2 method sau để call: 
 ### Đối số theo thứ tự là: "function sử dụng", "kiểu dữ liệu trả về", ["kiểu dữ liệu tham số truyền vào"], "tham số truyền vào"
 * Encrypt:
