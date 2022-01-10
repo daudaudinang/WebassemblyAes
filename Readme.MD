@@ -28,7 +28,7 @@ git clone https://github.com/emscripten-core/emsdk.git
 ## Cú pháp build:
 * Chạy npm run build
 * Hoặc chạy trực tiếp lệnh build bằng emscripten:
-emcc src/crypto.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o dist/aes.js -s EXPORTED_FUNCTIONS='_encryptAES_CBC' -s EXPORTED_RUNTIME_METHODS='cwrap' -s ALLOW_MEMORY_GROWTH=1
+`emcc src/crypto.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o dist/aes.js -s EXPORTED_FUNCTIONS='_encryptAES_CBC' -s EXPORTED_RUNTIME_METHODS='cwrap' -s ALLOW_MEMORY_GROWTH=1`
 <!-- emcc aes.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o aes.js -s EXPORTED_FUNCTIONS='["_encryptAES_CBC","_decryptAES_CBC"]' -s EXPORTED_RUNTIME_METHODS='["cwrap"]' -s ALLOW_MEMORY_GROWTH=1 -->
 
 ## Giải thích:
@@ -42,9 +42,9 @@ ALLOW_MEMORY_GROWTH: Cho phép tăng kích thước bộ nhớ.
 -s ENVIRONMENT='web': Set cái này để file aes.js của chúng ta chạy được trong môi trường web. Nếu không set trường này thì trong file webpack.config.js ta phải set thêm externals: "fs" vào phần config, nếu không app sẽ lỗi.
 
 ## Cách call
-B1: Import file aes.js và aes.js.mem nhận được sau khi build vào file html của chúng ta
-B2: Sử dụng 1 trong 2 method sau để call: 
-Đối số theo thứ tự là: "function sử dụng", "kiểu dữ liệu trả về", ["kiểu dữ liệu tham số truyền vào"], "tham số truyền vào"
+### B1: Import file aes.js và aes.js.mem nhận được sau khi build vào file html của chúng ta
+### B2: Sử dụng 1 trong 2 method sau để call: 
+### Đối số theo thứ tự là: "function sử dụng", "kiểu dữ liệu trả về", ["kiểu dữ liệu tham số truyền vào"], "tham số truyền vào"
 * Encrypt:
 let x = Module.cwrap("encryptAES","string",["string"])("hahahaha123+/12^*4");
 Module.cwrap("encryptAES","string",["string"])("hahahaha123+/12^*4");
