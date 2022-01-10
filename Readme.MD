@@ -52,10 +52,10 @@ let x = Module.cwrap("encryptAES","string",["string"])("hahahaha123+/12^*4");
 let y = Module.cwrap("encryptAES","string",["string"])(x);
 
 * Nếu muốn gọi hàm mã hoá và giải mã nhiều lần, thì ta có thể làm như sau:
-const encryptFunction = Module.cwrap("encryptAES","string",["string"]);
-encryptFunction("hahahaha123+/12^*4");
-encryptFunction("hahbáạksabjksa123+/12^*4");
-encryptFunction("871hsáunjậksjnkấn");
+- const encryptFunction = Module.cwrap("encryptAES","string",["string"]);
+- encryptFunction("hahahaha123+/12^*4");
+- encryptFunction("hahbáạksabjksa123+/12^*4");
+- encryptFunction("871hsáunjậksjnkấn");
 
 ## Lưu ý
 * Hàm encrypt sẽ trả về hex string của data đã mã hoá chứ không phải base 64
