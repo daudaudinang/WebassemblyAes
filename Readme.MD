@@ -1,6 +1,5 @@
 # Thư viện sử dụng:
 1. aes.c + aes.h: Thư viện TinyAes để mã hoá và giải mã
-2. pkcs7_padding: Do TinyAes chỉ hỗ trợ những chuỗi có độ dài là bộ số của 16, không hỗ trợ thêm bớt padding tự động nên ta cần Library này để thêm và bớt padding theo pkcs7 đối với những plain text độ dài không phải bội số của 16.
 
 # Cách sử dụng:
 Ta dùng emscripten để build.
