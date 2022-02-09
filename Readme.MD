@@ -26,7 +26,7 @@ git clone https://github.com/emscripten-core/emsdk.git
 ## Cú pháp build:
 * Chạy npm run build
 * Hoặc chạy trực tiếp lệnh build bằng emscripten:
-`emcc src/crypto.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o dist/aes.js -s EXPORTED_FUNCTIONS='_encryptAES_CBC' -s EXPORTED_RUNTIME_METHODS='cwrap' -s ALLOW_MEMORY_GROWTH=1`
+`emcc src/crypto.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o dist/aes.js -s EXPORTED_FUNCTIONS=['_encryptAES_CBC'] -s EXPORTED_RUNTIME_METHODS=['cwrap'] -s ALLOW_MEMORY_GROWTH=1`
 <!-- emcc aes.c -Oz -s WASM=0 --memory-init-file 0 -s ENVIRONMENT='web' -o aes.js -s EXPORTED_FUNCTIONS='["_encryptAES_CBC","_decryptAES_CBC"]' -s EXPORTED_RUNTIME_METHODS='["cwrap"]' -s ALLOW_MEMORY_GROWTH=1 -->
 
 ## Giải thích:
